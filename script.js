@@ -3,8 +3,9 @@ const inputButton = document.getElementById("input-button");
 
 inputButton.addEventListener("click", () => {
   const mealBoxDetails = document.getElementsByClassName("meal-box");
+  console.log(mealBoxDetails);
 
-  ///// hiding previous meal-box divs for new search
+  //////// hiding previous meal-box divs for new search
   if (mealBoxDetails.length > 0) {
     for (let i = 0; i < mealBoxDetails.length; i++) {
       const div = mealBoxDetails[i];
