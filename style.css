@@ -1,0 +1,48 @@
+/* ff */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2.5rem 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 2rem;
+}
+
+.search {
+    width: 35%;
+    margin: 0 auto;
+}
+
+.my-container {
+    padding: 5rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 2.25rem 1.5rem;
+}
+
+.meal-box {
+    background-color: aqua;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.meal-img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.meal-heading {
+    text-align: center;
+    margin: 2rem;
+    font-size: 1.2rem;
+}
