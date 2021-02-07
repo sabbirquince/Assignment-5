@@ -1,4 +1,4 @@
-//////////// BUTTON EVENT HANDLER ////////////
+//////////// SEARCH BUTTON EVENT HANDLER ////////////
 
 const inputButton = document.getElementById("input-button");
 
@@ -17,7 +17,7 @@ inputButton.addEventListener("click", () => {
   fetchingMealData(inputMealName);
 });
 
-//////////// FETCHING FUNCTION ///////////
+//////////// FETCHING FUNCTION FOR SEARCH ///////////
 
 const fetchingMealData = (inputNameValue) => {
   fetch(
@@ -28,7 +28,7 @@ const fetchingMealData = (inputNameValue) => {
     .catch(() => ifError());
 };
 
-///////////// SETTING FETCHED DETAILS FUNCTION /////////////
+///////////// SETTING FETCHED DETAILS FOR MEAL-BOXES - FUNCTION /////////////
 
 const showMeal = (meals) => {
   meals.forEach((meal) => {
@@ -61,34 +61,35 @@ const showPopup = () => {
     mealBox.addEventListener("click", function () {
       // had to use function instead of arrow because 'this' doesn't work in arrow
       const popupId = document.getElementById("popup-box");
-      popupId.style.transform = "translate(-50%, -50%) scale(1)";
+      popupId.style.transform = "translate(-50%, -50%) scale(.9)";
 
       const mealName = this.getElementsByClassName("meal-heading")[0].innerHTML;
 
       fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`)
         .then((response) => response.json())
-        .then((data) => showingInPopup(data));
+        .then((data) => popupDetailsSetting(data));
     });
   }
 };
 
-////////////////// POPUP EXECUTION FUNCTION /////////////////
+////////////////// POPUP DETAILS SETTING & EXECUTION FUNCTION /////////////////
 
-const showingInPopup = (info) => {
+const popupDetailsSetting = (info) => {
+  console.log(info);
   const popupId = document.getElementById("popup-box");
 
-  const mealName = info.meals[0].strMeal;
   const mealImage = info.meals[0].strMealThumb;
 
   //// POPUP IMAGE DOM SETTING
   const popupImageDiv = document.createElement("div");
   const popupImageDom = `
-    <img class="popup-img" src="${mealImage}">
+  <img class="popup-img" src="${mealImage}">
   `;
   popupImageDiv.innerHTML = popupImageDom;
   popupId.appendChild(popupImageDiv);
 
   //// POPUP TEXT DETAILS DOM SETTINGS
+  const mealName = info.meals[0].strMeal;
   const popupDetailsDiv = document.createElement("div");
   popupDetailsDiv.className = "popup-details";
 
@@ -102,6 +103,9 @@ const showingInPopup = (info) => {
       <li>${info.meals[0].strIngredient4}</li>
       <li>${info.meals[0].strIngredient5}</li>
       <li>${info.meals[0].strIngredient6}</li>
+      <li>${info.meals[0].strIngredient7}</li>
+      <li>${info.meals[0].strIngredient8}</li>
+      <li>${info.meals[0].strIngredient9}</li>
       </ul>
       <button class="my-btn btn btn-dark">&times;</button> 
       `;
