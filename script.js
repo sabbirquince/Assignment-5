@@ -61,7 +61,7 @@ const showPopup = () => {
     mealBox.addEventListener("click", function () {
       // had to use function instead of arrow because 'this' doesn't work in arrow
       const popupId = document.getElementById("popup-box");
-      popupId.style.transform = "translate(-50%, -50%) scale(.9)";
+      popupId.style.transform = "translate(-50%, -50%) scale(.92)";
 
       const mealName = this.getElementsByClassName("meal-heading")[0].innerHTML;
 
@@ -97,15 +97,15 @@ const popupDetailsSetting = (info) => {
       <h2>${mealName}</h2>
       <h4>Ingredients</h4>
       <ul>
-      <li>${info.meals[0].strIngredient1}</li>
-      <li>${info.meals[0].strIngredient2}</li>
-      <li>${info.meals[0].strIngredient3}</li>
-      <li>${info.meals[0].strIngredient4}</li>
-      <li>${info.meals[0].strIngredient5}</li>
-      <li>${info.meals[0].strIngredient6}</li>
-      <li>${info.meals[0].strIngredient7}</li>
-      <li>${info.meals[0].strIngredient8}</li>
-      <li>${info.meals[0].strIngredient9}</li>
+      <li>&diams; ${info.meals[0].strIngredient1}</li>
+      <li>&diams; ${info.meals[0].strIngredient2}</li>
+      <li>&diams; ${info.meals[0].strIngredient3}</li>
+      <li>&diams; ${info.meals[0].strIngredient4}</li>
+      <li>&diams; ${info.meals[0].strIngredient5}</li>
+      <li>&diams; ${info.meals[0].strIngredient6}</li>
+      <li>&diams; ${info.meals[0].strIngredient7}</li>
+      <li>&diams; ${info.meals[0].strIngredient8}</li>
+      <li>&diams; ${info.meals[0].strIngredient9}</li>
       </ul>
       <button class="my-btn btn btn-dark">&times;</button> 
       `;
