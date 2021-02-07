@@ -55,6 +55,7 @@ const showMeal = (meals) => {
 
 const showPopup = () => {
   const classMealBox = document.getElementsByClassName("meal-box");
+
   for (let i = 0; i < classMealBox.length; i++) {
     const mealBox = classMealBox[i];
 
@@ -75,12 +76,10 @@ const showPopup = () => {
 ////////////////// POPUP DETAILS SETTING & EXECUTION FUNCTION /////////////////
 
 const popupDetailsSetting = (info) => {
-  console.log(info);
   const popupId = document.getElementById("popup-box");
 
-  const mealImage = info.meals[0].strMealThumb;
-
   //// POPUP IMAGE DOM SETTING
+  const mealImage = info.meals[0].strMealThumb;
   const popupImageDiv = document.createElement("div");
   const popupImageDom = `
   <img class="popup-img" src="${mealImage}">
@@ -115,6 +114,7 @@ const popupDetailsSetting = (info) => {
 
   //// EVENT HANDLING FOR POPUP CLOSE BUTTON
   const closePopupButton = document.getElementsByClassName("my-btn");
+
   for (let i = 0; i < closePopupButton.length; i++) {
     const button = closePopupButton[i];
 
