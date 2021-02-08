@@ -76,14 +76,15 @@ const showPopup = () => {
 ////////////////// POPUP DETAILS SETTING & EXECUTION FUNCTION /////////////////
 
 const popupDetailsSetting = (info) => {
+  console.log(info.meals[0]);
   const popupId = document.getElementById("popup-box");
 
   //// POPUP IMAGE DOM SETTING
   const mealImage = info.meals[0].strMealThumb;
   const popupImageDiv = document.createElement("div");
-  const popupImageDom = `
-  <img class="popup-img" src="${mealImage}">
-  `;
+
+  const popupImageDom = `<img class="popup-img" src="${mealImage}">`;
+
   popupImageDiv.innerHTML = popupImageDom;
   popupId.appendChild(popupImageDiv);
 
@@ -95,22 +96,26 @@ const popupDetailsSetting = (info) => {
   const popupDetailsDom = `
       <h2>${mealName}</h2>
       <h4>Ingredients</h4>
-      <ul>
-      <li>&diams; ${info.meals[0].strIngredient1}</li>
-      <li>&diams; ${info.meals[0].strIngredient2}</li>
-      <li>&diams; ${info.meals[0].strIngredient3}</li>
-      <li>&diams; ${info.meals[0].strIngredient4}</li>
-      <li>&diams; ${info.meals[0].strIngredient5}</li>
-      <li>&diams; ${info.meals[0].strIngredient6}</li>
-      <li>&diams; ${info.meals[0].strIngredient7}</li>
-      <li>&diams; ${info.meals[0].strIngredient8}</li>
-      <li>&diams; ${info.meals[0].strIngredient9}</li>
-      </ul>
-      <button class="my-btn btn btn-dark">&times;</button> 
-      `;
+   
+      <button class="my-btn btn btn-dark">&times;</button>`;
 
   popupDetailsDiv.innerHTML = popupDetailsDom;
   popupId.appendChild(popupDetailsDiv);
+
+  ///// SHOWING INGREDIENTS IN DOM
+  const getMeal = info.meals[0];
+  const mealList = document.createElement("ul");
+  popupDetailsDiv.appendChild(mealList);
+
+  for (let i = 1; i <= 10; i++) {
+    const mealIngredient = getMeal[`strIngredient${i}`];
+
+    if (mealIngredient !== "") {
+      const mealItem = document.createElement("li");
+      mealItem.innerHTML = "&diams; " + mealIngredient;
+      mealList.appendChild(mealItem);
+    }
+  }
 
   //// EVENT HANDLING FOR POPUP CLOSE BUTTON
   const closePopupButton = document.getElementsByClassName("my-btn");
