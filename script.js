@@ -138,7 +138,6 @@ const ifError = () => {
   getErrorClass.style.transform = "translate(-50%, -50%) scale(1)";
 
   const errorCloseButton = document.querySelector(".my-close-btn");
-  console.log(errorCloseButton);
   errorCloseButton.addEventListener("click", () => {
     getErrorClass.style.transform = "translate(-50%, -50%) scale(0)";
   });
